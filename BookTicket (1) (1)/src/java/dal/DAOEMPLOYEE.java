@@ -23,8 +23,7 @@ public class DAOEMPLOYEE extends DBContext {
             PreparedStatement ps = connection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                Employee e = new Employee(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
-                list.add(e);
+                list.add(new Employee(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4)));
             }
         } catch (SQLException E) {
 
@@ -39,8 +38,8 @@ public class DAOEMPLOYEE extends DBContext {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                Employee e = new Employee(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
-                return e;
+                return new Employee(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
+
             }
         } catch (SQLException e) {
 
@@ -80,7 +79,7 @@ public class DAOEMPLOYEE extends DBContext {
         boolean isUpdated = false;
 
         try {
-            
+
             for (Feedback feedback : feedbackList) {
                 PreparedStatement stmt = connection.prepareStatement(sql);
                 stmt.setString(1, phanhoi);
@@ -116,23 +115,19 @@ public class DAOEMPLOYEE extends DBContext {
     public static void main(String[] args) {
         DAOEMPLOYEE dao = new DAOEMPLOYEE();
 
-        int passengerId = 1003;  
-        int employId = 2;     
-        String feedbackResponse = "Cảm Ơn Quý Khách"; 
+        int passengerId = 1003;
+        int employId = 2;
+        String feedbackResponse = "Cảm Ơn Quý Khách";
 
-      
         List<Feedback> feedbackList = dao.getidnv(passengerId);
 
-        
         if (feedbackList.isEmpty()) {
             System.out.println("Không tìm thấy phản hồi cho PassengerID: " + passengerId);
             return;
         }
 
-      
         boolean result = dao.updateFeedback(feedbackResponse, 1, employId, feedbackList);
 
-      
         if (result) {
             System.out.println("Cập nhật phản hồi thành công!");
         } else {

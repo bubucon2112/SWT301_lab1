@@ -29,10 +29,10 @@ public class TRACUU extends DBContext {
             PreparedStatement ps = connection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                PassagerInfor p = new PassagerInfor(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+
+                list.add(new PassagerInfor(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
                         rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),
-                        rs.getInt(10), rs.getInt(11));
-                list.add(p);
+                        rs.getInt(10), rs.getInt(11)));
             }
 
         } catch (SQLException ex) {
@@ -89,10 +89,10 @@ public class TRACUU extends DBContext {
             pre.setInt(1, id);
             ResultSet rs = pre.executeQuery();
             if (rs.next()) {
-                PassagerInfor p = new PassagerInfor(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+                return new PassagerInfor(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
                         rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),
                         rs.getInt(10), rs.getInt(11));
-                return p;
+
             }
         } catch (SQLException e) {
 
@@ -115,10 +115,10 @@ public class TRACUU extends DBContext {
             pre.setString(1, name);
             ResultSet rs = pre.executeQuery();
             if (rs.next()) {
-                PassagerInfor p = new PassagerInfor(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+                ;
+                list.add(new PassagerInfor(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
                         rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),
-                        rs.getInt(10), rs.getInt(11));
-                list.add(p);
+                        rs.getInt(10), rs.getInt(11)));
             }
         } catch (SQLException e) {
 

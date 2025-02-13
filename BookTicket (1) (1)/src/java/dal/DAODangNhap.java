@@ -32,11 +32,11 @@ public class DAODangNhap extends DBContext {
             if (rs.next()) {
                 Role r = new Role(rs.getInt(7), rs.getString(8));
                 if (rs.getInt(7) == 1 || rs.getInt(7) == 2) {
-                    Acount a = new Acount(rs.getInt("EmployeeId"), rs.getString(2), rs.getString(3), r);
-                    return a;
+                    return new Acount(rs.getInt("EmployeeId"), rs.getString(2), rs.getString(3), r);
+
                 } else {
-                    Acount a = new Acount(rs.getString(2), rs.getString(3), r, rs.getInt(9));
-                    return a;
+                    return new Acount(rs.getString(2), rs.getString(3), r, rs.getInt(9));
+
                 }
 
             }

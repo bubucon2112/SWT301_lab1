@@ -61,7 +61,8 @@ public class login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-     request.getRequestDispatcher("dangnhap.jsp").forward(request, response);    }
+        request.getRequestDispatcher("dangnhap.jsp").forward(request, response);
+    }
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -125,7 +126,7 @@ public class login extends HttpServlet {
             Role r = new Role(3, "Khách hàng");
             Passager p = new Passager(paName, paTel, paID, paEmail);
             boolean check = dao.addPassenger(p);
-           
+
             Acount account = new Acount(username, matkhau, r, dao.getIDPassenger());
             boolean add = dao.addAccount(account);
 
@@ -177,7 +178,6 @@ public class login extends HttpServlet {
                         response.sendRedirect("admin");
                         break;
                     case "Nhân viên":
-
                         response.sendRedirect("nhanvien");
                         break;
                     case "Khách hàng":

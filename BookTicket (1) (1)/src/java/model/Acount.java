@@ -12,8 +12,11 @@ import model.Role;
  */
 public class Acount {
 
-    private int accountid, employeeid, passagerid;
-    String user, pass;
+    private int accountid;
+    private int employeeid;
+    private int passagerid;
+    String user;
+    String pass;
     Role r;
 
     public Acount() {

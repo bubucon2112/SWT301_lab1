@@ -10,10 +10,13 @@ package model;
  */
 public class THEMNV {
 
-    private String accountuser, pass;
+    private String accountuser;
+    private String pass;
 
     Employee employee;
     int roleid;
+
+    ;
 
     public THEMNV() {
     }

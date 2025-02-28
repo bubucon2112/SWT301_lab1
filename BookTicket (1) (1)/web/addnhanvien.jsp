@@ -83,7 +83,11 @@
                                     <div class="table-responsive mt-3">
                                         <form action="addnhanvien" method="post">
                                             <table class="table table-hover table-centered mb-0">
-
+                                                <thead>
+                                                    <tr>
+                                                        <td>Bảng thông tin Nhân Viên</td>
+                                                    </tr>
+                                                </thead>
 
                                                 <tbody>
                                                     <tr>
